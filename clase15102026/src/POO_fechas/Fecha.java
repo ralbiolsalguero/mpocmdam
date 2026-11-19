@@ -47,6 +47,7 @@ public class Fecha {
         return resultado;
     }
 
+
     public boolean fechaCorrecta() {
         boolean resultado = false;
         boolean diaCorrecto, mesCorrecto, anioCorrecto;
@@ -74,5 +75,27 @@ public class Fecha {
             resultado = true;
         }
         return resultado;
+    }
+
+    public void diaSiguiente(){
+
+        // 15/03/2000 + 1 dia = 16/03/2000
+        // 30/04/2000 + 1 dia = 01/05/2000
+        // 31/12/2000 + 1 dia = 01/01/2001
+
+        dia++;
+        if(!fechaCorrecta()){
+            dia = 1;
+            mes++;
+            if(!fechaCorrecta()){
+                mes = 1;
+                anio++;
+            }
+        }
+
+    }
+
+    public String toString(){
+        return dia + " - "+mes+" - "+anio;
     }
 }
